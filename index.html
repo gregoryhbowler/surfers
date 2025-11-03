@@ -17,12 +17,15 @@
             color: #e0e0e0;
             overflow-x: hidden;
             user-select: none;
+            max-width: 100vw;
         }
 
         .container {
             max-width: 1920px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .header {
@@ -185,21 +188,21 @@
 
         .global-controls {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
         .main-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 20px;
         }
 
         .channel {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 20px;
+            padding: 15px;
             position: relative;
         }
 
@@ -207,8 +210,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -247,13 +250,13 @@
         }
 
         .steps-container {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(8, 1fr);
-            gap: 6px;
+            gap: 5px;
             margin-bottom: 15px;
         }
 
@@ -263,8 +266,8 @@
             cursor: pointer;
             transition: all 0.15s;
             touch-action: none;
-            min-width: 40px;
-            min-height: 40px;
+            min-width: 35px;
+            min-height: 35px;
         }
 
         .step-circle {
@@ -361,14 +364,15 @@
         .controls-row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
         .control-group {
             display: flex;
             flex-direction: column;
             gap: 5px;
+            min-width: 0;
         }
 
         .control-label {
@@ -377,6 +381,9 @@
             letter-spacing: 0.1em;
             color: #666;
             font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .control-value {
@@ -458,6 +465,7 @@
             font-family: inherit;
             font-size: 0.85em;
             cursor: pointer;
+            box-sizing: border-box;
         }
 
         .btn-reseed {
@@ -763,9 +771,55 @@
             color: #9765E0;
         }
 
+        @media (max-width: 1600px) {
+            .main-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+            
+            .channel {
+                padding: 12px;
+            }
+            
+            .steps-grid {
+                gap: 4px;
+            }
+            
+            .step {
+                min-width: 32px;
+                min-height: 32px;
+            }
+            
+            .control-label {
+                font-size: 0.65em;
+            }
+        }
+
         @media (max-width: 1400px) {
             .main-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .step {
+                min-width: 35px;
+                min-height: 35px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .container {
+                padding: 12px;
+            }
+            
+            .channel {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -847,8 +901,8 @@
             }
             
             .step {
-                min-width: 36px;
-                min-height: 36px;
+                min-width: 38px;
+                min-height: 38px;
             }
             
             select {
